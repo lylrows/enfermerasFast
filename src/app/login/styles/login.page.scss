@@ -1,0 +1,228 @@
+// Custom variables
+// Note:  These ones were added by us and have nothing to do with Ionic CSS Custom Properties
+:host {
+  --page-margin: var(--app-broad-margin);
+  --page-background: var(--app-background-shade);
+}
+
+// Note:  All the CSS variables defined below are overrides of Ionic elements CSS Custom Properties
+.login-content {
+  --background: var(--page-background);
+  --padding-start: var(--page-margin);
+  --padding-end: var(--page-margin);
+  --padding-top: var(--page-margin);
+  --padding-bottom: var(--page-margin);
+  
+
+  .auth-title {
+    color: var(--ion-color-dark);
+    font-weight: bold;
+    margin-top: calc(var(--page-margin) / 2);
+    margin-bottom: calc(var(--page-margin) * (3/2));
+    letter-spacing: 0.6px;
+  }
+
+  .inputs-list {
+    --ion-item-background: transparent;
+
+    .input-item {
+      --padding-start: 0px;
+      --padding-end: 0px;
+      --inner-padding-end: 0px;
+    }
+
+    .error-container {
+      .error-message {
+        margin: calc(var(--page-margin) / 2) 0px;
+        display: flex;
+        align-items: center;
+        color: red;
+        font-size: 14px;
+
+        ion-icon {
+          padding-inline-end: calc(var(--page-margin) / 2);
+        }
+      }
+    }
+  }
+
+  .login-btn {
+    margin: calc(var(--page-margin) / 2) 0px;
+  }
+
+  .other-auth-options-row {
+    justify-content: space-between;
+    align-items: center;
+
+    .forgot-btn {
+      --color: var(--ion-color-medium);
+      margin: 0px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .signup-btn {
+      --color: var(--ion-color-secondary);
+      margin: 0px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .boton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2px;
+  }
+
+  .social-auth-options {
+
+    .options-divider {
+      color: var(--ion-color-dark);
+  		margin: 2px 0px;
+  		text-align: center;
+      font-size: 15px;
+    }
+
+    .social-auth-btn {
+      color: var(--ion-color-dark);
+      
+      width: 100%;    
+      align-items: center;
+      gap: 8px;
+      &:not(:first-child) {
+        margin-top: 7px;//var(--page-margin)
+      }
+    }
+   
+  }
+ 
+}
+
+.bg-one,
+      .bg-one ~ .content span{
+      background-color:var(--ion-color-secondary);
+
+      }
+
+      .bg-two,
+      .bg-two ~ .content span{
+      background-color:var(--ion-color-primary);
+
+      }
+
+      .bg-three,
+      .bg-three ~ .content span{
+      background-color:#603838;
+
+      }
+
+      .bg-four,
+      .bg-four ~ .content span{
+      background-color:#603838;
+
+      }
+      .bg-five,
+      .bg-five ~ .content span{
+      background-color:#F9BF3B;
+
+      }
+      .bg-six,
+      .bg-six ~ .content span{
+      background-color:#C25396;
+
+      }
+
+.tabs-box{
+  background-color: #fff;
+  color:#FFF;
+  width:100%;
+  height: auto;
+  margin:30px auto;
+  box-shadow:0 0 10px rgba(0,0,0,.3)
+}
+.tabs-box .acord{
+ position:relative;
+ overflow:hidden;
+}
+.tabs-box .acord label{
+  position:relative;
+  z-index: 1000;
+  display:block;
+  padding:0 0 0 0;
+}
+.tabs-box .acord label i{
+  display:block;
+  position:absolute;
+  top:0;
+  right:0;
+  width:100%;
+  text-align: center;
+}
+.tabs-box .acord label,
+.tabs-box .acord label i,
+.tabs-box .acord i.fa-chevron-circle-down{
+    height:auto;
+    line-height: 40px;
+}
+.tabs-box .acord i.fa-chevron-circle-down{
+  position:absolute;
+  z-index: 1111;
+  top:0;
+  left:0;
+  width: 100%;
+  text-align: center;
+  -moz-transition:all .2s linear 0s;
+  -webkit-transition:all .2s linear 0s;
+  transition:all .2s linear 0s;
+}
+
+.tabs-box .acord input{
+  display:none;
+}
+
+.tabs-box .content{
+  position:relative;
+  overflow:hidden;
+  -moz-transition:height 0.5s linear 0s;
+  -webkit-transition: height 0.5s linear 0s;
+  transition: height 0.5s linear 0s;
+  height:0;
+  font-size:14px;
+  line-height:22px;
+  color:#e4e4e4;
+  text-align:center;
+}
+
+.tabs-box .content span.square{
+  display: block;
+  position: absolute;
+  left: 10px;
+  top: -17px;
+  width: 100%;
+  height: auto;
+  transform: rotate(45deg);
+}
+.tabs-box input[type="checkbox"]:checked ~ div.content{
+  height:auto;//altura del contenido que se oculta
+  padding:10px;
+}
+.tabs-box input[type="checkbox"]:checked ~ i.fa-chevron-circle-down{
+transform:rotate(60deg);
+}
+
+.texto-encima{
+  font-size: 30px;
+  position: absolute;
+  top: 80%;
+  left: 80%;
+  transform: translate(-80%, -80%);
+  text-shadow: 0.1em 0.1em 0.2em rgb(0, 0, 0);
+  font-weight:bold;
+  //-webkit-text-stroke: 0.5px rgb(227, 227, 227);
+}

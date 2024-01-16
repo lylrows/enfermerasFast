@@ -1,0 +1,65 @@
+@import "mixins/ion-color";
+
+// Add custom colors to use with [color] property
+// (see: https://forum.ionicframework.com/t/adding-custom-colours-to-use-with-color-property/136919)
+// GLOBAL COLORS:
+//    You can define new Ionic colors here (inside :root{ ... }) to be available within the entire app
+// LOCAL COLORS:
+//    You can also define new Ionic colors in each page (inside :host{ ... }) to be available just in that page
+//    (We have an example of local custom Ionic colors in the deals pages)
+:root {
+  @include ion-color('facebook') {
+    --ion-color-facebook: #3b5998;
+    --ion-color-facebook-rgb: 59,89,152;
+    --ion-color-facebook-contrast: #ffffff;
+    --ion-color-facebook-contrast-rgb: 255,255,255;
+    --ion-color-facebook-shade: #344e86;
+    --ion-color-facebook-tint: #4f6aa2;
+  }
+
+  @include ion-color('google') {
+    --ion-color-google: #cc181e;
+    --ion-color-google-rgb: 204,24,30;
+    --ion-color-google-contrast: #ffffff;
+    --ion-color-google-contrast-rgb: 255,255,255;
+    --ion-color-google-shade: #b4151a;
+    --ion-color-google-tint: #d12f35;
+  }
+
+  @include ion-color('twitter') {
+    --ion-color-twitter: #00aced;
+    --ion-color-twitter-rgb: 0,172,237;
+    --ion-color-twitter-contrast: #ffffff;
+    --ion-color-twitter-contrast-rgb: 255,255,255;
+    --ion-color-twitter-shade: #0097d1;
+    --ion-color-twitter-tint: #1ab4ef;
+  }
+
+  @include ion-color('rating') {
+    --ion-color-rating: #2c818c;
+    --ion-color-rating-rgb: 44, 129, 140;
+    --ion-color-rating-contrast: #ffffff;
+    --ion-color-rating-contrast-rgb: 0,0,0;
+    --ion-color-rating-shade: #1e5a62;
+    --ion-color-rating-tint: #3a97a3;
+  }
+
+  @include ion-color('stars') {
+    --ion-color-stars: #FEC101;
+    --ion-color-stars-rgb: 254, 193, 1;
+    --ion-color-stars-contrast: #ffffff;
+    --ion-color-stars-contrast-rgb: 0,0,0;
+    --ion-color-stars-shade: #bf9b24;
+    --ion-color-stars-tint: #f3db8c;
+  }
+  
+  @include ion-color('location') {
+    --ion-color-location: #E74C3C;
+    --ion-color-location-rgb: 231, 76, 60;
+    --ion-color-location-contrast: #ffffff;
+    --ion-color-location-contrast-rgb: 0,0,0;
+    --ion-color-location-shade: #bf392b;
+    --ion-color-location-tint: #fb6453;
+  }
+
+}

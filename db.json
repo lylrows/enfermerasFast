@@ -1,0 +1,67 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "nurses": [
+    {
+      "id": 1,
+      "uid": "mHdRCngmcYNmoFdmO02MUj6JgH11",
+      "firstName": "Brinn",
+      "lastName": "Jephcote",
+      "email": "bjephcote0@archive.org",
+      "onAttention": false,
+      "rol": 2
+    },
+    {
+      "id": 2,
+      "uid": "mHdRCngmcYNmoFdmO02MUj6JgHr2",
+      "firstName": "Yeisd",
+      "lastName": "CC",
+      "email": "yeicc3000@gmail.com",
+      "onAttention": false,
+      "rol": 3
+    },
+    {
+      "id": 3,
+      "firstName": "Kimmy",
+      "lastName": "Penniall",
+      "email": "kpenniall2@biblegateway.com",
+      "onAttention": false,
+      "rol": 2
+    }
+  ],
+  "patients": [
+    {
+      "id": 1,
+      "uid": "AlZBEq2KYOdsaQk7nwhjjpbBW1s1",
+      "firstName": "Josselin",
+      "lastName": "Calderon",
+      "email": "jsslncalderon@gmail.com",
+      "onAttention": false,
+      "rol": 3
+    },
+    {
+      "id": 3,
+      "uid": "mHdRCngmcYNmoFdmO02MUj6JgH10",
+      "firstName": "Kim",
+      "lastName": "Pen",
+      "email": "kpen@biblegateway.com",
+      "onAttention": false,
+      "rol": 3
+    }
+  ]
+}

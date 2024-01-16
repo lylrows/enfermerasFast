@@ -1,0 +1,84 @@
+{
+    "posts": [
+      {
+        "id": 1,
+        "title": "json-server",
+        "author": "typicode"
+      }
+    ],
+    "comments": [
+      {
+        "id": 1,
+        "body": "some comment",
+        "postId": 1
+      }
+    ],
+    "profile": {
+      "name": "typicode"
+    },
+
+    "nurses": [
+      {
+        "id": 1,
+        "firstName": "Brinn",
+        "lastName": "Jephcote",
+        "email": "bjephcote0@archive.org",
+        "gender": "Female",
+        "age": 36,
+        "onAtenttion": false,
+        "rol": 2
+      },
+      {
+        "id": 2,
+        "firstName": "Kenneth",
+        "lastName": "MacElholm",
+        "email": "kmacelholm1@sina.com.cn",
+        "gender": "Male",
+        "age": 75,
+        "onAtenttion": false,
+        "rol": 2
+      },
+      {
+        "id": 3,
+        "firstName": "Kimmy",
+        "lastName": "Penniall",
+        "email": "kpenniall2@biblegateway.com",
+        "gender": "Female",
+        "age": 45,
+        "onAtenttion": false,
+        "rol": 2
+      }
+    ],
+   "patients": [
+      {
+        "id": 1,
+        "firstName": "Josselin",
+        "lastName": "Calderon",
+        "email": "jsslncalderon@gmail.com",
+        "gender": "Female",
+        "age": 42,
+        "onAtenttion": false,
+        "rol": 3
+      },
+      {
+        "id": 2,
+        "firstName": "Yei",
+        "lastName": "CC",
+        "email": "yeicc3000@gmail.com",
+        "gender": "Female",
+        "age": 33,
+        "onAtenttion": false,
+        "rol": 3
+      },
+      {
+        "id": 3,
+        "firstName": "Kim",
+        "lastName": "Pen",
+        "email": "kpen@biblegateway.com",
+        "gender": "Female",
+        "age": 28,
+        "onAtenttion": false,
+        "rol": 3
+      }
+    ]
+  }

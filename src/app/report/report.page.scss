@@ -1,0 +1,33 @@
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+th, td {
+    padding: 0.3em;
+    border: 0.5px solid var(--ion-color-light);
+  }
+  
+th {
+    color: var(--ion-color-lightest);
+    background-color: var(--ion-color-primary);
+    font-weight: normal;
+  }
+
+  .input-item {
+    --padding-start: 0px;
+    --padding-end: 0px;
+    --inner-padding-end: 0px;
+  }
+
+  img{
+    vertical-align: middle;
+}
+
+@media only screen and (max-width: 480px) {
+    table {
+      display: block;
+      overflow-x: auto;
+    }
+}

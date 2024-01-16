@@ -1,0 +1,142 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Reportes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding">
+  <!-- <div style="display: flex;">
+  <div style="max-width: 150px;">
+    <ion-card color="primary" (click)="nurse()">
+        <ion-card-content>
+          <div style="max-width: 70px;">
+          <img src="../../assets/report/nurse.png">ENFERMERAS
+          </div>
+          <ion-card-subtitle></ion-card-subtitle>
+        </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div style="max-width: 150px;">
+    <ion-card color="secondary" (click)="patient()">
+        <ion-card-content>
+          <div style="max-width: 70px;">
+          <ion-img src="../../assets/report/patient.png"></ion-img>
+          </div>
+          <ion-card-subtitle>PACIENTES</ion-card-subtitle>
+        </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div style="max-width: 150px;">
+    <ion-card color="success" (click)="sales()">
+        <ion-card-content>
+          <div style="max-width: 70px;">
+          <ion-img src="../../assets/report/sales.png"></ion-img>
+          </div>
+          <ion-card-subtitle>INGRESOS</ion-card-subtitle>
+        </ion-card-content>
+    </ion-card>
+  </div>
+  </div> -->
+  <div style="text-align: center;">
+    <ion-button color="primary" (click)="nurse()">Enfermera(o)</ion-button>
+    <ion-button color="secondary" (click)="patient()">Pacientes</ion-button>
+    <ion-button color="success" (click)="sales()">Ingresos</ion-button>
+  </div>
+
+  <div *ngIf="reportNurse || reportPatient">
+    <ion-list class="inputs-list" lines="full">
+      <ion-item class="input-item item-label-floating">
+        <ion-label position="floating">Fecha Inicio</ion-label>
+        <ion-input type="date" placeholder="dd/mm/aaaa" [(ngModel)]="date.fechaInicial" clearInput></ion-input>
+      </ion-item>
+      <ion-item class="input-item item-label-floating">
+        <ion-label position="floating">Fecha Fin</ion-label>
+        <ion-input type="date" placeholder="dd/mm/aaaa" [(ngModel)]="date.fechaFinal" clearInput></ion-input>
+      </ion-item>
+    </ion-list>
+    <div *ngIf="reportNurse">
+      <ion-button color="tertiary" (click)="getDataNurse()">Obtener</ion-button>
+    </div>
+    <div *ngIf="reportPatient">
+      <ion-button color="light" (click)="getDataPatient()">Generar</ion-button>
+    </div>
+  </div>
+  <div *ngIf="reportNurse">
+    <table>
+      <tr>
+          <th>Id</th>
+          <th>Enfermera</th>
+          <th>N° Citas</th>
+          <th>N° Servicios</th>
+          <th>Promedio Calif.</th>
+          <th>Total Ingresos</th>
+      </tr>
+      <tr *ngFor="let item of listReportNurse">
+          <td style="text-align: center">{{item.idEnfermera}}</td>
+          <td>{{item.nombreEnfermera}}</td>
+          <td>{{item.cantidadCitas}}</td>
+          <td>{{item.cantidadServicios}}</td>
+          <td>{{item.promedioCalificaciones}}</td>
+          <td>{{item.totalIngresos}}</td>
+      </tr>
+    </table>
+  </div>
+  <div *ngIf="reportPatient">
+    <table>
+      <tr>
+          <th>Id</th>
+          <th>Paciente</th>
+          <th>N° Citas</th>
+          <th>N° Servicios</th>
+          <th>Promedio Calif.</th>
+          <th>Total Ingresos</th>
+      </tr>
+      <tr *ngFor="let item of listReportPatient">
+          <td style="text-align: center">{{item.idPaciente}}</td>
+          <td>{{item.nombrePaciente}}</td>
+          <td>{{item.cantidadCitas}}</td>
+          <td>{{item.cantidadServicios}}</td>
+          <td>{{item.promedioCalificaciones}}</td>
+          <td>{{item.totalIngresos}}</td>
+      </tr>
+    </table>
+  </div>
+  <div *ngIf="reportSale">
+    <ion-list class="inputs-list" lines="full">
+      <ion-item class="input-item item-label-floating">
+        <ion-select okText="OK" placeholder="Tipo Reporte" [(ngModel)]="dateSales.tipoReporte">
+          <ion-select-option *ngFor="let item of ListTypeReport" [value]="item.nombreParametro" >{{ item.nombreParametro }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item class="input-item item-label-floating">
+        <ion-label position="floating">Fecha Inicio</ion-label>
+        <ion-input type="date" placeholder="dd/mm/aaaa" [(ngModel)]="dateSales.fechaInicial" clearInput></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-button color="dark" (click)="getDataSales()">Cargar</ion-button>
+    <table>
+      <tr>
+          <th *ngIf="isAnual">Año</th>
+          <th *ngIf="isSemana">Semana</th>
+          <th *ngIf="isMes">Mes</th>
+          <th>Ingresos</th>
+          <th>Citas</th>
+          <th>Servicios</th>
+      </tr>
+      <tr *ngFor="let item of listReportSales">
+          <td *ngIf="isAnual" style="text-align: center">{{item.anio}}</td>
+          <td *ngIf="isSemana">{{item.semana}}</td>
+          <td *ngIf="isMes">{{item.mes}}</td>
+          <td>{{item.ingresos}}</td>
+          <td>{{item.citas}}</td>
+          <td>{{item.servicios}}</td>
+      </tr>
+    </table>
+  </div>
+</ion-content>

@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Búsqueda Enfermera</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="forms-validations-content forgot-password-content">
+  <form class="validations-form" [formGroup]="validationsForm" (ngSubmit)="busquedaEnfer()" autocomplete="nope">
+    <ion-list class="inputs-list" lines="full">
+
+      <ion-item class="input-item item-label-floating">
+        <ion-label position="floating">Especialidad</ion-label>
+        <ion-select formControlName="idEspecialidad" cancelText="Cancel" okText="OK" (ionChange)="filtrarServicios()">
+          <ion-select-option *ngFor="let especialidad of especialidades" [value]="especialidad.id">{{ especialidad.nombreEspecialidad }} </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item class="input-item item-label-floating">
+        <ion-label position="floating">Servicio</ion-label>
+        <ion-select formControlName="idServicio" cancelText="Cancel" okText="OK" multiple  (ionChange)="changeServicios($event)">
+          <ion-select-option *ngFor="let servicio of serviciosFiltro" [value]="servicio.id">
+            {{ servicio.nombre }} 
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item class="input-item item-label-floating">
+        <ion-label position="floating">Precio Servicio</ion-label>
+        <ion-input type="text" value="{{costoTotal}}" disabled></ion-input>
+      </ion-item>
+
+
+
+      <ion-item class="input-item item-label-floating">
+        <ion-label position="floating">Distancia (km)</ion-label>
+        <ion-input type="text" formControlName="distancia" clearInput required
+          (keypress)="numberOnlyValidation($event)"></ion-input>
+      </ion-item>
+
+      <ion-item class="input-item item-label-floating">
+        <ion-label position="floating">Fecha</ion-label>
+        <ion-item class="input-item item-label-floating">
+          <ion-input type="date" clearInput required formControlName="stringFecha"></ion-input>
+        </ion-item>
+      </ion-item>
+
+      <ion-item class="input-item item-label-floating">
+        <ion-label position="floating">Hora</ion-label>
+        <ion-item class="input-item item-label-floating">
+          <ion-input type="time" clearInput min="07:00" max="23:00" required formControlName="stringHora"></ion-input>
+        </ion-item>
+      </ion-item>
+
+
+    </ion-list>
+    <ion-button class="submit-btn" type="submit" expand="block" fill="outline"
+      [disabled]="!validationsForm.valid">Buscar</ion-button>
+  </form>
+
+  <div class="col-sm-6" id="alignetcard">
+    <div id="demo" class="card mx-auto border-0">
+    </div>
+  </div>
+
+</ion-content>

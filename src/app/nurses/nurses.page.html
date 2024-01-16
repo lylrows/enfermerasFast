@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Gestionar Enfermeras(os)</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div>
+    <ion-button (click)="openModal('Nuevo')" color="tertiary">Nuevo(a) Enfermero(a)</ion-button>
+  </div>
+  <hr>
+  <table>
+    <tr>
+        <th>Id</th>
+        <th>Usuario</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th class="iconh">Acciones</th>
+    </tr>
+    <tr *ngFor="let item of authService.listNurse | filtro:page">
+        <td style="text-align: center">{{item.id}}</td>
+        <td>{{item.nombreUsuario}}</td>
+        <td>{{item.nombre}}</td>
+        <td style="text-align: center">{{item.apellidoPaterno}}</td>
+        <td style="text-align: center">
+            <ion-button (click)="openModal2('Actualizar',item)" color="secondary">Editar</ion-button>
+            <ion-button (click)="disabledNurse(item)" color="secondary">Deshabilitar</ion-button>
+        </td>
+    </tr>
+  </table>
+
+  <div class="lista">
+    <ion-card *ngFor="let item of authService.listNurse | filtro:page">
+    <ion-card-header color="dark">
+      <ion-card-title>Id: {{item.id}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <br>
+      Nombre: {{item.nombre}} <hr>
+      Apellidos: {{item.apellidoPaterno}} {{item.apellidoMaterno}} <hr>
+      UserName: {{item.nombreUsuario}}
+      <br>
+      <div class="boton">
+        <ion-button (click)="openModal2('Actualizar',item)" color="secondary">
+          <ion-icon name="create-outline"></ion-icon>
+        </ion-button>
+        <ion-button (click)="disabledNurse(item)" color="secondary">
+          <ion-icon name="close-circle-outline"></ion-icon>
+        </ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  </div>
+  <div style="text-align: right;">
+    <ion-button color="primary" (click)="prevPage()">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-button>
+    <ion-button color="primary" 
+    (click)="nextPage()">
+      <ion-icon name="arrow-forward-outline"></ion-icon>
+    </ion-button>
+  </div>
+</ion-content>

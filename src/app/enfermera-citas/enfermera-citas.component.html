@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Mis Citas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="fashion-list-content">
+  <ion-item class="input-item item-label-floating">
+    <ion-label position="floating">Estado</ion-label>
+    <ion-select [(ngModel)]="estadoFiltro" (ionChange)="filtrarCitas()"> 
+      <ion-select-option [value]=1 > Aceptado </ion-select-option>
+      <ion-select-option [value]=3 > Pendiente </ion-select-option>
+    </ion-select>
+  </ion-item>
+
+
+  <table *ngIf="citas.length > 0" class="items-align">
+    <tr>
+      <th class="itemh">N°</th>
+      <th class="itemh">Fecha Atención</th>
+      <th class="itemh">Hora Atención</th>
+      <th class="itemh">Acciones</th>
+    </tr>
+    <tr *ngFor="let item of citasFiltrado; let i = index">
+      <td class="itemh" style="text-align: center">{{i+1}}</td>
+      <td class="itemh">{{item.fechaAtencion | date: 'dd/MM/yyyy'}}</td>
+      <td class="itemh">{{item.fechaAtencion | slice: -8:-3}}</td>
+      <td class="itemh">
+        <div style="text-align: center;font-size: 20px;">
+          <ion-icon *ngIf="item.estado == 3" (click)="operacionCita(item, 1)" name="checkmark-circle-outline"></ion-icon>
+          <ion-icon *ngIf="item.estado == 3" (click)="operacionCita(item, 2)" name="close-circle-outline"></ion-icon>
+          <ion-icon *ngIf="item.estado == 1" (click)="openMapaDesplazamiento(item)" name="earth-outline"></ion-icon>
+        </div>
+
+      </td>
+    </tr>
+  </table>
+
+  <ion-item *ngIf="citas.length == 0">
+    <p>
+      No tiene alertas de citas
+    </p>
+  </ion-item>
+  <div style="text-align: center;">
+    <img src="https://media.istockphoto.com/id/1213574554/vector/woman-in-mask-from-smartphone-alerts-from-megaphone-propagation-of-protection-information.jpg?s=612x612&w=0&k=20&c=flfn_MNpi3CawO0Po34mtgWLgdnypXGavJppMM77nog=" alt="" style="width: 85%; height: auto; max-width: 400px;">
+  </div>
+</ion-content>

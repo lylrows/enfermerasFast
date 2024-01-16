@@ -1,0 +1,169 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-button (click)="cancel()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Triaje</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="triageForm" (ngSubmit)="saveTriage()">
+    <ion-list lines="full">
+      <ion-item class="input-item">
+        <ion-label position="floating">Síntomas:</ion-label>
+        <ion-textarea type="text" formControlName="sintomas" clearInput autocapitalize="off" inputmode="text"></ion-textarea>
+      </ion-item>
+      <div class="error-container">
+        <ng-container *ngFor="let validation of validations.sintomas">
+          <div class="error-message" *ngIf="triageForm.get('sintomas').hasError(validation.type) && (triageForm.get('sintomas').dirty || triageForm.get('sintomas').touched)">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            <span>{{ validation.message }}</span>
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-item class="input-item">
+        <ion-label position="floating">Presión Arterial (mmHg). Ej. 120/80</ion-label>
+        <!-- (mmHg) Según https://accessmedicina.mhmedical.com/content.aspx?bookid=1722&sectionid=116885860 -->
+        <ion-input type="text" formControlName="presionArterial" clearInput autocapitalize="off" inputmode="text"></ion-input>
+      </ion-item>
+      <div class="error-container">
+        <ng-container *ngFor="let validation of validations.presionArterial">
+          <div class="error-message" *ngIf="triageForm.get('presionArterial').hasError(validation.type) && (triageForm.get('presionArterial').dirty || triageForm.get('presionArterial').touched)">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            <span>{{ validation.message }}</span>
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-item class="input-item">
+        <ion-label position="floating">Frecuencia Cardíaca (LPM)</ion-label>
+        <ion-input type="number" formControlName="frecuenciaCardiaca" clearInput autocapitalize="off" inputmode="number"></ion-input>
+      </ion-item>
+      <div class="error-container">
+        <ng-container *ngFor="let validation of validations.frecuenciaCardiaca">
+          <div class="error-message" *ngIf="triageForm.get('frecuenciaCardiaca').hasError(validation.type) && (triageForm.get('frecuenciaCardiaca').dirty || triageForm.get('frecuenciaCardiaca').touched)">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            <span>{{ validation.message }}</span>
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-item class="input-item">
+        <ion-label position="floating">Temperatura (C°)</ion-label>
+        <ion-input type="number" formControlName="temperatura" clearInput autocapitalize="off" inputmode="number"></ion-input>
+      </ion-item>
+      <div class="error-container">
+        <ng-container *ngFor="let validation of validations.temperatura">
+          <div class="error-message" *ngIf="triageForm.get('temperatura').hasError(validation.type) && (triageForm.get('temperatura').dirty || triageForm.get('temperatura').touched)">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            <span>{{ validation.message }}</span>
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-item class="input-item">
+        <ion-label position="floating">Saturacion Oxígeno (%)</ion-label>
+        <ion-input type="number" formControlName="saturacionOxigeno" clearInput autocapitalize="off" inputmode="number"></ion-input>
+      </ion-item>
+      <div class="error-container">
+        <ng-container *ngFor="let validation of validations.saturacionOxigeno">
+          <div class="error-message" *ngIf="triageForm.get('saturacionOxigeno').hasError(validation.type) && (triageForm.get('saturacionOxigeno').dirty || triageForm.get('saturacionOxigeno').touched)">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            <span>{{ validation.message }}</span>
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-item class="input-item">
+        <ion-label position="floating">Peso (kg)</ion-label>
+        <ion-input type="number" formControlName="peso" clearInput autocapitalize="off" inputmode="number"></ion-input>
+      </ion-item>
+      <div class="error-container">
+        <ng-container *ngFor="let validation of validations.peso">
+          <div class="error-message" *ngIf="triageForm.get('peso').hasError(validation.type) && (triageForm.get('peso').dirty || triageForm.get('peso').touched)">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            <span>{{ validation.message }}</span>
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-item class="input-item">
+        <ion-label position="floating">Talla (Mt)</ion-label>
+        <ion-input type="number" formControlName="talla" clearInput autocapitalize="off" inputmode="number"></ion-input>
+      </ion-item>
+      <div class="error-container">
+        <ng-container *ngFor="let validation of validations.talla">
+          <div class="error-message" *ngIf="triageForm.get('talla').hasError(validation.type) && (triageForm.get('talla').dirty || triageForm.get('talla').touched)">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            <span>{{ validation.message }}</span>
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-item class="input-item">
+        <ion-label position="floating">Antecedentes Médicos:</ion-label>
+        <ion-textarea type="text" formControlName="antecedentesMedicos" clearInput autocapitalize="off" inputmode="text"></ion-textarea>
+      </ion-item>
+      <div class="error-container">
+        <ng-container *ngFor="let validation of validations.antecedentesMedicos">
+          <div class="error-message" *ngIf="triageForm.get('antecedentesMedicos').hasError(validation.type) && (triageForm.get('antecedentesMedicos').dirty || triageForm.get('antecedentesMedicos').touched)">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            <span>{{ validation.message }}</span>
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-item class="input-item">
+        <ion-label position="floating">Diagnóstico Provisional:</ion-label>
+        <ion-textarea type="text" formControlName="diagnosticoProvisional" clearInput autocapitalize="off" inputmode="text"></ion-textarea>
+      </ion-item>
+      <div class="error-container">
+        <ng-container *ngFor="let validation of validations.diagnosticoProvisional">
+          <div class="error-message" *ngIf="triageForm.get('diagnosticoProvisional').hasError(validation.type) && (triageForm.get('diagnosticoProvisional').dirty || triageForm.get('diagnosticoProvisional').touched)">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            <span>{{ validation.message }}</span>
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-item class="input-item">
+        <ion-label position="floating">Tratamiento Recomendado:</ion-label>
+        <ion-textarea type="text" formControlName="tratamientoRecomendado" clearInput autocapitalize="off" inputmode="text"></ion-textarea>
+      </ion-item>
+      <div class="error-container">
+        <ng-container *ngFor="let validation of validations.tratamientoRecomendado">
+          <div class="error-message" *ngIf="triageForm.get('tratamientoRecomendado').hasError(validation.type) && (triageForm.get('tratamientoRecomendado').dirty || triageForm.get('tratamientoRecomendado').touched)">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            <span>{{ validation.message }}</span>
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-item class="input-item item-label-floating">
+        <ion-label position="floating">Tipo de Seguro</ion-label>
+        <ion-select formControlName="seguro" okText="OK">
+          <ion-select-option *ngFor="let item of typeSegur" [value]="item.idParametro" >{{ item.nombreParametro }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item class="input-item">
+        <ion-label position="floating">Observaciones:</ion-label>
+        <ion-textarea type="text" formControlName="observaciones" clearInput autocapitalize="off" inputmode="text"></ion-textarea>
+      </ion-item>
+      <div class="error-container">
+        <ng-container *ngFor="let validation of validations.observaciones">
+          <div class="error-message" *ngIf="triageForm.get('observaciones').hasError(validation.type) && (triageForm.get('observaciones').dirty || triageForm.get('observaciones').touched)">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            <span>{{ validation.message }}</span>
+          </div>
+        </ng-container>
+      </div>
+    </ion-list>
+
+    <ion-button type="submit" expand="block" color="secondary" [disabled]="!triageForm.valid">Guardar</ion-button>
+  </form>
+</ion-content>

@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Especialidades</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="forgot-password-content">
+  
+  <form [formGroup]="espForm" (ngSubmit)="saveSpecialityForm()">
+    <ion-list class="inputs-list" lines="full">
+      <ion-item class="input-item">
+        <ion-input type="text" placeholder="Ingresar Nombre" formControlName="nombreEspecialidad" clearInput autocapitalize="off" inputmode="text"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-button class="reset-password-btn" type="submit" expand="block" color="secondary" [disabled]="!espForm.valid">Guardar</ion-button>
+  </form>
+
+  
+  <table class="items-align">
+    <tr>
+        <th class="itemh">N°</th>
+        <th class="itemh">Especialidad</th>
+        <th class="iconh">Acciones</th>
+    </tr>
+    <tr *ngFor="let item of especialidadService.listEspecialidades; let i = index">
+        <td class="itemh" style="text-align: center">{{i+1}}</td>
+        <td class="itemh">{{item.nombreEspecialidad}}</td>
+        <td class="itemh">
+          <div style="text-align: center;font-size: 20px;">
+            <ion-icon name="create-outline" (click)="updateEspecialidad(item)"></ion-icon>&nbsp;
+            <ion-icon name="trash-bin-outline" (click)="deleteEspecialidad(item)"></ion-icon>
+          </div>
+        </td>
+    </tr>
+</table>
+</ion-content>

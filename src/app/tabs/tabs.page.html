@@ -1,0 +1,20 @@
+ <ion-tabs (ionTabsDidChange)="ionTabsDidChange($event)">
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="categories" [routerLinkActive]="['tab-selected']" [routerLink]="['/app/categories']">
+      <ion-icon name="list-outline"></ion-icon>
+      <ion-label class="tab-title">Inicio</ion-label>
+    </ion-tab-button>
+    <!-- <ion-tab-button tab="forms-and-validations" [routerLinkActive]="['tab-selected']" [routerLink]="['/forms-and-validations']">
+      <ion-icon name="reader-outline"></ion-icon>
+      <ion-label class="tab-title">Perfil</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="appointment" [routerLinkActive]="['tab-selected']" [routerLink]="['/app/categories/appointment']">
+      <ion-icon name="person-outline"></ion-icon>
+      <ion-label class="tab-title">Mis Citas</ion-label>
+    </ion-tab-button> -->
+    <ion-tab-button tab="chat" [routerLinkActive]="['tab-selected']" [routerLink]="['app/firebasev2/chat']">
+      <ion-icon name="notifications-outline"></ion-icon>
+      <ion-label class="tab-title">Chat</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

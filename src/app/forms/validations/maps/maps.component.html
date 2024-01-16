@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button color="medium" (click)="cancel()">
+          <ion-icon name="chevron-back-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Geolocalización</ion-title>
+      <ion-buttons *ngIf="myLatLng != null" slot="end">
+        <ion-button color="success" (click)="confirmLocate()">Confirmar</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-fab vertical="top" horizontal="end" slot="fixed">
+      <ion-fab-button (click)="geolocateMe()" color="secondary">
+        <ion-icon name="locate"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+    <app-google-map [mapOptions]="mapOptions"></app-google-map>
+  </ion-content>

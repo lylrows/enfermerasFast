@@ -1,0 +1,123 @@
+// Custom variables
+// Note:  These ones were added by us and have nothing to do with Ionic CSS Custom Properties
+:host {
+  --shell-color: #cb328f;
+  --shell-color-rgb: 203,50,143;
+}
+
+// You can also apply sheel styles to the entire page
+:host(.is-shell) {
+  // ion-content {
+  //   opacity: 0.8;
+  // }
+  a {
+    pointer-events: none;
+  }
+}
+
+app-image-shell.item-image {
+  --image-shell-loading-background: rgba(var(--shell-color-rgb), .10);
+  --image-shell-spinner-color: rgba(var(--shell-color-rgb), .25);
+}
+
+.item-name app-text-shell {
+  --text-shell-animation-background: rgba(var(--shell-color-rgb), .25);
+  --text-shell-animation-color: rgba(var(--shell-color-rgb), .35);
+  --text-shell-line-height: 14px;
+}
+
+.item-sale-price > app-text-shell {
+  --text-shell-animation-background: rgba(var(--shell-color-rgb), .20);
+  --text-shell-animation-color: rgba(var(--shell-color-rgb), .30);
+  --text-shell-line-height: 16px;
+}
+
+.item-original-price > app-text-shell {
+  --text-shell-animation-background: rgba(var(--shell-color-rgb), .20);
+  --text-shell-animation-color: rgba(var(--shell-color-rgb), .30);
+  --text-shell-line-height: 16px;
+}
+
+
+.list-content {
+  font-size: 12px;
+
+  --padding-start: var(--page-margin);
+    --padding-end: var(--page-margin);
+    --padding-top: var(--page-margin);
+    --padding-bottom: var(--page-margin);
+    
+    .auth-title {
+      color: var(--ion-color-primary);
+      font-weight: bold;
+      margin-top: calc(var(--page-margin) / 2);
+      margin-bottom: calc(var(--page-margin) * (3/2));
+      letter-spacing: 0.6px;
+    }
+  
+    .recover-message {
+      color: var(--ion-color-medium);
+      margin: calc(var(--page-margin) / 2) 0px;
+    }
+  
+    .inputs-list {
+      --ion-item-background: var(--page-background);
+  
+      .input-item {
+        --padding-start: 0px;
+        --padding-end: 0px;
+        --inner-padding-end: 0px;
+      }
+  
+      .error-container {
+        .error-message {
+          margin: calc(var(--page-margin) / 2) 0px;
+          display: flex;
+          align-items: center;
+          color: var(--ion-color-danger);
+          font-size: 14px;
+  
+          ion-icon {
+            padding-inline-end: calc(var(--page-margin) / 2);
+          }
+        }
+      }
+    }
+  
+    .reset-password-btn {
+      margin: calc(var(--page-margin) / 2) 0px;
+    }
+  
+    table {
+      width: 100%;
+      //border: 2px solid var(--ion-color-primary);
+    }
+    th, td {
+        min-width: 22%;
+        text-align: left;
+        vertical-align: top;
+        border: 0.5px solid var(--ion-color-light);
+        //background-color: #d6d6d6;
+        border-collapse: collapse;
+        padding: 0.3em;
+        caption-side: bottom;
+        
+    }
+    th {
+      color: var(--ion-color-lightest);
+      background-color: var(--ion-color-primary);
+      text-align: center;
+      font-weight: normal;
+    }
+    .items-align{
+      display: table;
+      min-height:20px;
+    }
+    .itemh{
+      display: table-cell;
+      vertical-align: middle;
+    }
+    caption {
+        padding: 0.3em;
+    }
+  }

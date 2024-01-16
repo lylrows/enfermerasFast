@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="app/categories"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Mantenimiento Parámetros</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="list-content">
+  <div class="addService">
+    <ion-item class="input-item item-label-floating">
+      <ion-label position="floating">Categoría</ion-label>
+      <ion-select cancelText="Cancel" okText="OK" (ionChange)="changeParametroPadre($event.detail.value)"  [(ngModel)]="categoriaSeleccionada">
+        <ion-select-option *ngFor="let parametro of parametrosPadres" [value]="parametro.id"  >{{ parametro.nombreParametro }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-button (click)="openModal()" color="secondary">Agregar Categoría</ion-button>
+    <ion-button *ngIf="categoriaSeleccionada != 0"   (click)="agregarParametro()" color="secondary">Agregar Parámetro</ion-button>
+  </div>
+  <br>
+  <ng-container *ngIf="parametrosHijos != null">
+    <div class="table">
+      <table class="items-align">
+        <tr>
+            <th class="itemh">Parámetro</th>
+            <th class="itemh">Descripción</th>
+            <th class="itemh">Acciones</th>
+        </tr>
+        <tr *ngFor="let item of parametrosHijos">
+            <td class="itemh">{{ item.nombreParametro }}</td>
+            <td class="itemh">{{ item.descripcionParametro }}</td>
+            <td class="itemh" style="text-align: center">
+              <ion-button (click)="editParametro(item)" style="font-size: 9px;">
+                <ion-icon  name="pencil-outline"></ion-icon>
+              </ion-button>
+              <ion-button color="danger" (click)="deleteParametro(item)" style="font-size: 9px;">
+                <ion-icon  name="trash-outline"></ion-icon>
+              </ion-button>
+            </td>
+        </tr>
+    </table>
+    </div>
+
+  </ng-container>
+</ion-content>

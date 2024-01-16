@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="app/categories"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Servicios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="fashion-list-content">
+  <div class="addService" *ngIf="user.idRol===1">
+    <ion-button (click)="openModal()" color="secondary">Agregar Servicio</ion-button>
+  </div>
+  <br>
+  <ng-container *ngIf="servicios !== null">
+    <div class="tabla">
+      <table class="items-align">
+        <tr>
+            <th class="itemh">Id</th>
+            <th class="itemh">Servicio</th>
+            <th class="itemh" *ngIf="user.idRol===1">Acciones</th>
+        </tr>
+        <tr *ngFor="let item of servicios; index as i">
+            <td class="itemh" style="text-align: center">{{i+1}}</td>
+            <td class="itemh">{{ item.nombre }}</td>
+            <td class="itemh" style="text-align: center" *ngIf="user.idRol===1">
+              <ion-button (click)="editService(item)">
+                <ion-icon  name="pencil-outline"></ion-icon>
+              </ion-button>
+              <ion-button color="danger" (click)="deleteService(item)">
+                <ion-icon  name="trash-outline"></ion-icon>
+              </ion-button>
+            </td>
+        </tr>
+    </table>
+    </div>
+
+  </ng-container>
+</ion-content>

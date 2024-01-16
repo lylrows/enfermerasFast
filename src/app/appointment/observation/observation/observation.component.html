@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-button (click)="cancel()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Observaciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="forgot-password-content">
+  <form [formGroup]="obsForm" (ngSubmit)="getObsForm()">
+      <ion-list class="inputs-list" lines="full">
+        <ion-item class="input-item">
+          <ion-textarea type="text" rows="10" formControlName="obs" clearInput autocapitalize="off" inputmode="text"></ion-textarea>
+        </ion-item>
+      </ion-list>
+      <ion-button class="reset-password-btn" type="submit" expand="block" color="secondary" [disabled]="!obsForm.valid">Guardar</ion-button>
+  </form>
+  <hr>
+  <ion-textarea [disabled]="true">
+    {{this.citaDatos?.observacion}}
+  </ion-textarea>
+</ion-content>

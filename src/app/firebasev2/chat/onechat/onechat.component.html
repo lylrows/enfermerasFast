@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-button (click)="cancel()"><ion-icon name="chevron-back-outline"></ion-icon></ion-button>
+    </ion-buttons>
+    <ion-title>{{nameChat}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+  
+<ion-content class="showcase-content" [scrollEvents]="true">
+
+<div id="contenedorMensajes" class="chat-container">
+  <ul class="chat">
+    <li class="msj" *ngFor="let item of items | async" [ngClass]="item?.id==idUser ? 'message right': 'message left'">
+      <p class="nombre"><b>{{item.name}}</b></p>
+      <p>{{item?.text}}</p>
+		</li>
+	</ul>
+</div>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="light">
+    <ion-textarea
+    placeholder="Escribir un mensaje"
+    #newMsg
+    [(ngModel)]="msg"
+    (keydown)="handleSubmit($event)"
+    >
+    </ion-textarea>
+  <ion-buttons slot="end">
+    <ion-fab-button size="small" color="primary" (click)="addItem(name,msg)">
+      <ion-icon name="send"></ion-icon>
+    </ion-fab-button>
+  </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

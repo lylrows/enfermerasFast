@@ -1,0 +1,101 @@
+// Custom variables
+// Note:  These ones were added by us and have nothing to do with Ionic CSS Custom Properties
+:host {
+    --page-margin: var(--app-broad-margin);
+    --page-background: transparent;
+  }
+  
+  // Note:  All the CSS variables defined below are overrides of Ionic elements CSS Custom Properties
+  .forgot-password-content {
+    --background: var(--page-background);
+    --padding-start: var(--page-margin);
+    --padding-end: var(--page-margin);
+    --padding-top: var(--page-margin);
+    --padding-bottom: var(--page-margin);
+  
+    .auth-title {
+      color: var(--ion-color-primary);
+      font-weight: bold;
+      margin-top: calc(var(--page-margin) / 2);
+      margin-bottom: calc(var(--page-margin) * (3/2));
+      letter-spacing: 0.6px;
+    }
+  
+    .recover-message {
+      color: var(--ion-color-medium);
+      margin: calc(var(--page-margin) / 2) 0px;
+    }
+  
+    .inputs-list {
+      --ion-item-background: var(--page-background);
+  
+      .input-item {
+        --padding-start: 0px;
+        --padding-end: 0px;
+        --inner-padding-end: 0px;
+      }
+  
+      .error-container {
+        .error-message {
+          margin: calc(var(--page-margin) / 2) 0px;
+          display: flex;
+          align-items: center;
+          color: var(--ion-color-danger);
+          font-size: 14px;
+  
+          ion-icon {
+            padding-inline-end: calc(var(--page-margin) / 2);
+          }
+        }
+      }
+    }
+  
+    .reset-password-btn {
+      margin: calc(var(--page-margin) / 2) 0px;
+    }
+
+    table {
+      width: 100%;
+      //border: 2px solid var(--ion-color-primary);
+    }
+    th, td {
+        min-width: 22%;
+        text-align: left;
+        vertical-align: top;
+        border: 0.5px solid var(--ion-color-light);
+        //background-color: #d6d6d6;
+        border-collapse: collapse;
+        padding: 0.3em;
+        caption-side: bottom;
+        
+    }
+    th {
+      color: var(--ion-color-lightest);
+      background-color: var(--ion-color-primary);
+      text-align: center;
+      font-weight: normal;
+    }
+    .items-align{
+      display: table;
+      min-height:20px;
+    }
+    .itemh{
+      display: table-cell;
+      vertical-align: middle;
+    }
+    caption {
+        padding: 0.3em;
+    }
+    
+    ion-textarea {
+      --min-height: auto !important;
+      --max-height: auto !important;
+    }
+    
+    ion-textarea textarea {
+      resize: none !important;
+      overflow: hidden !important;
+      min-height: auto !important;
+      max-height: none !important;
+    }
+  }

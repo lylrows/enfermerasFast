@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{op}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="nurseForm" (ngSubmit)="saveNurse()">
+    <ion-list lines="full">
+      <ion-item class="input-item">
+        <ion-input type="text" placeholder="Nombre" formControlName="name" clearInput autocapitalize="off" inputmode="text"></ion-input>
+      </ion-item>
+      <div class="error-container">
+        <ng-container *ngFor="let validation of validations.name">
+          <div class="error-message" *ngIf="nurseForm.get('name').hasError(validation.type) && (nurseForm.get('name').dirty || nurseForm.get('name').touched)">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            <span>{{ validation.message }}</span>
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-item class="input-item">
+        <ion-input type="text" placeholder="Apellido Paterno" formControlName="lastname" clearInput autocapitalize="off" inputmode="text"></ion-input>
+      </ion-item>
+      <div class="error-container">
+        <ng-container *ngFor="let validation of validations.lastname">
+          <div class="error-message" *ngIf="nurseForm.get('lastname').hasError(validation.type) && (nurseForm.get('lastname').dirty || nurseForm.get('lastname').touched)">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            <span>{{ validation.message }}</span>
+          </div>
+        </ng-container>
+      </div>
+
+
+      <ion-item class="input-item">
+        <ion-input type="text" placeholder="Nombre de Usuario" formControlName="nameuser" clearInput autocapitalize="off" inputmode="text"></ion-input>
+      </ion-item>
+      <div class="error-container">
+        <ng-container *ngFor="let validation of validations.username">
+          <div class="error-message" *ngIf="nurseForm.get('nameuser').hasError(validation.type) && (nurseForm.get('nameuser').dirty || nurseForm.get('nameuser').touched)">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            <span>{{ validation.message }}</span>
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-item class="input-item">
+        <app-show-hide-password>
+          <ion-input type="password" placeholder="Contraseña" formControlName="pass" clearInput autocapitalize="off" inputmode="text"></ion-input>
+        </app-show-hide-password>        
+      </ion-item>
+      <div class="error-container">
+        <ng-container *ngFor="let validation of validations.password">
+          <div class="error-message" *ngIf="nurseForm.get('pass').hasError(validation.type) && (nurseForm.get('pass').dirty || nurseForm.get('pass').touched)">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            <span>{{ validation.message }}</span>
+          </div>
+        </ng-container>
+      </div>
+
+    </ion-list>
+    <ion-button type="submit" expand="block" color="secondary" [disabled]="!nurseForm.valid">Guardar</ion-button>
+  </form>
+  <div style="text-align: center;">
+    <img src="https://img.freepik.com/free-icon/nurse_318-769376.jpg" alt="" style="width: 50%; height: auto; max-width: 400px;">
+  </div>
+</ion-content>

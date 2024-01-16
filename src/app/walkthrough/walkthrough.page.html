@@ -1,0 +1,112 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button class="skip-walkthrough-button" fill="clear" (click)="skipWalkthrough()">Omitir</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <swiper [pagination]="true" class="walkthrough-slides" (swiper)="setSwiperInstance($event)" (init)="swiperInit()" (slideChangeTransitionStart)="slideWillChange()">
+    <ng-template swiperSlide>
+      <ion-row class="slide-inner-row first-slide illustration-and-decoration-slide">
+        <ion-col class="illustration-col">
+          <app-aspect-ratio [ratio]="{w:900, h:900}">
+            <app-image-shell class="illustratison-image" animation="spinner" src="../../assets/walkthrough/ENFERMERAYA.png" [alt]="'walkthrough'"></app-image-shell>
+          </app-aspect-ratio>
+        </ion-col>
+        <ion-col class="decoration-col">
+          <svg class="vector-decoration" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="100px" width="100%" viewBox="0 0 90 20" style="enable-background:new 0 0 90 20;" xml:space="preserve" preserveAspectRatio="none">
+            <path d="M0 0 V5 H5 C25 5 25 20 45 20 S65 5 85 5 H90 V0 Z"/>
+          </svg>
+        </ion-col>
+        <ion-col class="info-col">
+          <div class="info-wrapper">
+            <br>
+              <h1 style="text-align: center; color: #4895d6;"><b>ENFERMERAS YA</b></h1>
+            <p class="info-paragraph" style="text-align: center;">
+              Donde los pacientes pueden <b>buscar</b> y <b>contactar</b> con enfermeras cercanas a su ubicación y solicitar servicios médicos de manera <b>rápida</b> y <b>sencilla</b>.
+            </p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ng-template>
+    <ng-template swiperSlide>
+      <ion-row class="second-slide illustration-and-decoration-slide slide-inner-row">
+        <ion-col class="illustration-col">
+          <app-aspect-ratio [ratio]="{w:900, h:900}">
+            <app-image-shell class="illustration-image" animation="spinner" src="../../assets/walkthrough/chat-1.png" [alt]="'walkthrough'"></app-image-shell>
+          </app-aspect-ratio>
+        </ion-col>
+        <ion-col class="decoration-col">
+          <svg class="vector-decoration" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="100px" width="100%" viewBox="0 0 64 24" style="enable-background:new 0 0 64 24;" xml:space="preserve" preserveAspectRatio="none">
+            <path d="M0 0 L64 0 L64 24 Q56 24 48 16 Q34 0 22 10 Q10 22 0 8 Z"/>
+          </svg>
+        </ion-col>
+        <ion-col class="info-col">
+          <div class="info-wrapper">
+            <h3 class="info-title" style="text-align: center"><b>EFICIENCIA</b></h3>
+            <p class="info-paragraph" style="text-align: center;">
+              Mayor eficiencia en la coordinación de servicios médicos gracias al <b>chat en tiempo real</b> y al <b>seguimiento de las solicitudes</b> y <b>aceptaciones de servicios</b>.
+            </p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ng-template>
+    <ng-template swiperSlide>
+      <ion-row class="third-slide illustration-and-decoration-slide slide-inner-row">
+        <ion-col class="illustration-col">
+          <app-aspect-ratio [ratio]="{w:900, h:900}">
+            <app-image-shell class="illustration-image" animation="spinner" src="../../assets/walkthrough/security-1.png" [alt]="'walkthrough'"></app-image-shell>
+          </app-aspect-ratio>
+        </ion-col>
+        <ion-col class="decoration-col">
+          <svg class="vector-decoration" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="100px" width="100%" viewBox="0 0 64 14" style="enable-background:new 0 0 64 24;" xml:space="preserve" preserveAspectRatio="none">
+            <path d="M0 0 V5 H5 C19 5 25 14 32 14 S45 5 59 5 H64 V0 Z"/>
+          </svg>
+        </ion-col>
+        <ion-col class="info-col">
+          <div class="info-wrapper">
+            <br>
+            <br>
+            <h3 class="info-title" style="text-align: center"><b>CONFIDENCIALIDAD</b></h3>
+            <p class="info-paragraph" style="text-align: center;">
+              Mayor seguridad y confidencialidad en el pago de servicios médicos a través de pasarelas de <b>pago en línea seguras</b>.
+            </p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ng-template>
+    <ng-template swiperSlide>
+      <ion-row class="last-slide illustration-and-decoration-slide slide-inner-row">
+        <ion-col class="illustration-col">
+          <app-aspect-ratio [ratio]="{w:900, h:900}">
+            <app-image-shell class="illustration-image" animation="spinner" src="../../assets/walkthrough/5stars-1.png" [alt]="'walkthrough'"></app-image-shell>
+          </app-aspect-ratio>
+        </ion-col>
+        <ion-col class="decoration-col">
+          <svg class="vector-decoration" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="100px" width="100%" viewBox="0 0 64 18" style="enable-background:new 0 0 64 24;" xml:space="preserve" preserveAspectRatio="none">
+            <path d="M0 0 L64 0 L64 10 Q56 24 46 12 Q34 0 26 8 Q10 22 0 8 Z"/>
+          </svg>
+        </ion-col>
+        <ion-col class="info-col">
+          <ion-row class="info-outer">
+            <ion-col>
+              <div class="info-wrapper">
+                <h3 class="info-title" style="text-align: center"><b>TRANSPARENCIA</b></h3>
+                <p class="info-paragraph" style="text-align: center;">
+                  Mayor transparencia y confianza entre pacientes y enfermeras gracias a las <b>calificaciones</b> y <b>reseñas</b>.
+                </p>
+              </div>
+            </ion-col>
+            <ion-col class="call-to-actions-wrapper">
+              <hr>
+              <hr>
+              <ion-button class="get-started-button" expand="block" (click)="getStart()">Ingresar</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ng-template>
+  </swiper>
+</ion-content>

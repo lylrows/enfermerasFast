@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title style="text-align: center;">ELIGE TU PERFIL</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="login-content">
+  <div class="tabs-box">
+    <div class="acord" >
+        <label for="tb-one" class="bg-one">
+          <!-- <i class="fa fa-comments"></i> -->
+          <img src="../../assets/img-icons/p1.png" width="100%" alt="">
+          <div class="texto-encima">
+            PACIENTES
+          </div>
+          <img>
+        </label>
+        <input type="checkbox" name="mytabs" id="tb-one">
+        <!-- <i class="fa fa-chevron-circle-down"></i> -->
+        <div class="content" >
+          <span class="square"></span>
+          <div class="social-auth-options">
+            <div class="social-auth-options">
+              <p class="options-divider">INICIAR SESIÓN</p>
+              <ion-button class="social-auth-btn facebook-auth-btn"  color="facebook" (click)="signInProv('facebook')">
+                Facebook &nbsp;&nbsp;<div [innerHTML]="facebookIcon"></div> 
+              </ion-button>
+              <ion-button class="social-auth-btn google-auth-btn"  color="google" (click)="signInProv('google')">
+                GMail &nbsp;&nbsp;<div [innerHTML]="googleIcon"></div>
+              </ion-button>
+              <ion-button class="social-auth-btn twitter-auth-btn"  color="twitter" (click)="signInProv('twitter')">
+                Twitter &nbsp;&nbsp;<div [innerHTML]="twitterIcon"></div>
+              </ion-button>
+              <ion-button class="social-auth-btn apple-auth-btn"  color="dark" (click)="signInProv('apple')">
+                Apple &nbsp;&nbsp;<div [innerHTML]="appleIcon"></div>
+              </ion-button>
+            </div>
+            
+          </div>
+        </div>
+    </div>
+    <div class="acord" >
+        <label for="tb-two"  class="bg-two">
+          <i class="fa fa-cogs"></i>
+          <img src="../../assets/img-icons/e1.png" width="100%" alt="">
+          <div class="texto-encima">
+            ENFERMERA(O)
+          </div>
+        </label>
+        <input type="checkbox" name="mytabs" id="tb-two">
+        <!-- <i class="fa fa-chevron-circle-down"></i> -->
+        <div class="content">
+          <span class="square"></span>
+          <form [formGroup]="loginForm" (ngSubmit)="getLogin()">
+            <ion-list class="inputs-list" lines="full">
+              <ion-item class="input-item">
+                <ion-input type="text" placeholder="Nombre de usuario" formControlName="nombreUsuario" clearInput autocapitalize="off" required
+                inputmode="email"></ion-input>
+              </ion-item>
+              <div class="error-container">                
+                  <div class="error-message" *ngIf="loginForm.get('nombreUsuario').hasError('required') && (loginForm.get('nombreUsuario').dirty || loginForm.get('nombreUsuario').touched)">
+                    <ion-icon name="information-circle-outline"></ion-icon>
+                    <p>Nombre de usuario es requerido</p>
+                  </div>
+               
+              </div>
+              <ion-item class="input-item">
+                <app-show-hide-password>
+                  <ion-input type="password" placeholder="Contraseña" formControlName="password" required></ion-input>
+                </app-show-hide-password>
+              </ion-item>
+              <div class="error-container">               
+                  <div class="error-message" *ngIf="loginForm.get('password').hasError('required') && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+                    <ion-icon name="information-circle-outline"></ion-icon>
+                    <p>Contraseña es requerido</p>
+                  </div>                
+              </div>
+            </ion-list>
+        
+            <ion-button class="login-btn" type="submit" expand="block" [disabled]="!loginForm.valid">INICIAR SESIÓN</ion-button>
+            
+          </form> 
+        
+        </div>
+        <ion-row class="ion-justify-content-center">
+          <ion-button class="forgot-btn" fill="clear" [routerLink]="['/auth/forgot-password']">
+            ¿Olvidó su contraseña?
+          </ion-button>
+        </ion-row>
+    </div>
+  </div>
+</ion-content>

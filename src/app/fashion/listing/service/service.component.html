@@ -1,0 +1,44 @@
+<ion-header color="primary">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Servicios</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="forgot-password-content">
+  <form [formGroup]="serviceForm" (ngSubmit)="saveService()">
+    <ion-list class="inputs-list" lines="full">
+      <ion-item class="input-item">
+        <ion-label position="floating">Especialidad</ion-label>
+        <ion-select formControlName="speciality" cancelText="Cancel" okText="OK">
+          <ion-select-option *ngFor="let item of especialidades"
+            [value]="item.id">{{item.nombreEspecialidad}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item class="input-item">
+        <ion-textarea type="text" placeholder="Nombre Servicio" formControlName="name_service" clearInput
+          autocapitalize="off" inputmode="text" autosize style="text-align: justify;"></ion-textarea>
+      </ion-item>
+      
+      <ion-item class="input-item">
+        <ion-textarea type="text" placeholder="Descripción" formControlName="description" clearInput
+          autocapitalize="off" inputmode="text" rows="8" style="text-align: justify;"></ion-textarea>
+      </ion-item>
+      
+      <ion-item class="input-item">
+        <ion-input type="number" placeholder="Precio" formControlName="price" clearInput
+          autocapitalize="off" inputmode="text"></ion-input>
+      </ion-item>
+      
+    </ion-list>
+    <ion-button class="submit-btn" type="submit" expand="block" fill="outline" [disabled]="!serviceForm.valid">{{titleButton}}</ion-button>
+
+  </form>
+  <div style="text-align: center;">
+    <img src="https://max-website20-images.s3.ap-south-1.amazonaws.com/Nursing_Healthcare_1_3f8adf65f6.png" alt="" style="width: 85%; height: auto; max-width: 400px;">
+  </div>
+</ion-content>

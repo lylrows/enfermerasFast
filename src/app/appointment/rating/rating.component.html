@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar color="rating">
+    <ion-buttons slot="start">
+      <ion-button (click)="cancel()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Calificar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list lines="none">
+    <div style="text-align: center;" *ngIf="currentUser.idRol==3">
+      <h2>¿Qué te pareció la experiencia?</h2><hr>
+    </div>
+    <div style="text-align: center;" *ngIf="currentUser.idRol==2">
+      <h2>Califica al paciente</h2><hr>
+    </div>
+    <ion-card color="secondary" *ngIf="currentUser.idRol==2 || currentUser.idRol==3">
+      <ion-card-content class="card-content">
+        <ion-button color="stars" class="rating-icon" fill="clear" shape="round" *ngFor="let r of range; let i = index" (click)="rate(i + 1)">
+          <ion-icon slot="icon-only"
+            [name]="value === undefined ?
+            'star-outline' :
+            (value > i ? (value < i+1 ? 'star-half' : 'star') : 'star-outline')">
+          </ion-icon>
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-item *ngIf="currentUser.idRol==2 || currentUser.idRol==3">
+      <ion-text>
+        <hr>
+        1: No me gustó para nada.<hr>
+        2: No lo recomiendo.<hr>
+        3: Aceptable.<hr>
+        4: Prodía recomendarlo.<hr>
+        5. Lo recomendaría.
+      </ion-text>
+    </ion-item>
+
+    <ion-img src="../../../assets/rating/rating3.png"></ion-img>
+
+    <div *ngIf="currentUser.idRol==1">
+      <div style="text-align: center;">
+        <h2>Reporte Calificaciones</h2><hr>
+      </div>
+      <ion-card style="max-width: 400px;" color="tertiary" *ngFor="let itemRating of ListRatingbyIdCita">
+        <ion-card-content>
+          <b>Califica:</b> {{itemRating.nombreUsuarioCalifica}} <hr>
+          <b>Calificado:</b> {{itemRating.nombreUsuarioCalificado}} <hr>
+          <b>Puntaje:</b> {{itemRating.puntaje}} <hr>
+        </ion-card-content>
+      </ion-card>
+    </div>
+    
+  </ion-list>
+</ion-content>

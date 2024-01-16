@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/app"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Chat
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="showcase-content" [scrollEvents]="true" >
+
+      <div *ngIf="user.idRol===3">
+        <ion-list>
+            <ion-item *ngFor="let item of citasService.listChats" (click)="openModal(item)" button detail="true" detail-icon="chatbubbles-outline">
+              <ion-label>
+                {{item?.nombreEnfermera}} - {{item?.nombreEspecialidad}}
+              </ion-label>
+            </ion-item>
+        </ion-list>
+      </div>
+
+      <div *ngIf="user.idRol===2">
+        <ion-list>
+            <ion-item *ngFor="let item of citasService.listChats" (click)="openModal(item)" button detail="true" detail-icon="chatbubbles-outline">
+              <ion-label>
+                {{item?.nombrePaciente}} - {{item?.nombreEspecialidad}}
+              </ion-label>
+             
+            </ion-item>
+        </ion-list>
+      </div>
+      <div [hidden]="citasService.listChats == []">
+        <ion-label >
+          <p>
+            No tiene chats activos
+          </p>
+        </ion-label>
+      </div>
+     
+</ion-content>
+
+<ion-content>
+  <div style="text-align: center;">
+    <img src="https://www.registerednursing.org/wp-content/uploads/2017/07/nurse-advocate-image-768x512.jpg" alt="" style="width: 85%; height: auto; max-width: 400px;">
+  </div>
+</ion-content>
